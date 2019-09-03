@@ -1,0 +1,6 @@
+#! /bin/bash
+
+echo "Please pass in an app ID as argument"
+echo "1) Don Express Shop"
+echo "2) Don Express Dashboard"
+echo "3) Don Express CS Channel"

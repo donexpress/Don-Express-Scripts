@@ -1,0 +1,10 @@
+#! /bin/bash
+
+if [ $# -eq 0 ]; then
+    echo "No arguments provided"
+    bash ./app-list
+fi
+
+if [ $1 -eq 1]; then
+
+fi

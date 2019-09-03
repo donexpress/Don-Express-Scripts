@@ -1,0 +1,12 @@
+#! /bin/bash
+
+if [ $# -eq 0 ]; then
+    echo "No arguments provided"
+fi
+
+
+
+echo "You chose $app_id"
+echo "Value of first argument $1"
+
+echo "Continue with deployment"
