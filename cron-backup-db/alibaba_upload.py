@@ -11,15 +11,13 @@ date_actual = datetime.now().date()
 # First, initialize the AccessKeyId, AccessKeySecret, Endpoint and other information.
 # Obtained by environment variables, or by such asâ€œ<your_AccessKeyId>â€Replace with a real AccessKeyId and so on.
 #
-#access_key_id = os.getenv('OSS_TEST_ACCESS_KEY_ID', 'LTAIGmg7WXMnXaOi')
-#access_key_secret = os.getenv('OSS_TEST_ACCESS_KEY_SECRET', '6vFzQR3ZVb0Xf3Rg6uZNZZwUv4y3JV')
-#bucket_name = os.getenv('OSS_TEST_BUCKET', 'staging-bucket')
-#endpoint = os.getenv('OSS_TEST_ENDPOINT', 'https://oss-us-west-1.aliyuncs.com')
+access_key_id = os.getenv('OSS_TEST_ACCESS_KEY_ID', '')
+access_key_secret = os.getenv('OSS_TEST_ACCESS_KEY_SECRET', '')
+bucket_name = os.getenv('OSS_TEST_BUCKET', '')
+endpoint = os.getenv('OSS_TEST_ENDPOINT', '')
 
-# Create a bucket object, all Object related interfaces can be done through the Bucket object
-bucket = oss2.Bucket(oss2.Auth('OSS_TEST_ACCESS_KEY_ID', 'OSS_TEST_ACCESS_KEY_SECRET'), 'OSS_TEST_ENDPOINT', 'OSS_TEST_BUCKET')
+bucket = oss2.Bucket(oss2.Auth(access_key_id, access_key_secret), endpoint, bucket_name)
 
-# Generate a local file for testing. The file content is of type bytes.
 filepath = "/tmp/backups/donex_db_backup_" + str(date_actual)
 
 filename = filepath + '.tar.gz'
