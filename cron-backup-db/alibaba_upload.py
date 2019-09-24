@@ -28,10 +28,11 @@ bucket = oss2.Bucket(oss2.Auth(access_key_id, access_key_secret), endpoint, buck
 # Generate a local file for testing. The file content is of type bytes.
 filepath = "/tmp/backups/donex_db_backup_" + str(date_actual)
 
-# filename = filepath + '.tar.gz'
-filename = './test.png'
+filename = filepath + '.tar.gz'
+#filename = './test.png'
 
-bucket.put_object_from_file('test-upload.png', "./cron-backup-db/test.png")
+#bucket.put_object_from_file('test-upload.png', "./cron-backup-db/test.png")
+bucket.put_object_from_file('donex_db_backup_'+ str(date_actual) +'.tar.gz', filepath)
 
 # You can also directly call the slice upload interface.
 # First, you can use the help function to set the slice size, and let us expect the slice size to be 128KB.
