@@ -28,12 +28,13 @@ function notify_to_slack () {
 url=https://staging-gateway.donexpress.com
 
 # declare array variable
-declare -a ms=("" "/accounts" "/catalog" "/payments" "/logistics" "/wallet" "/social" "/notifications" "/customer_service" "/files" "/os")
+declare -a ms=("" "/accounts" "/catalog" "/payments" "/logistics" "/wallet" "/social" "/notifications" "/customer_service" "/files" "/os" "/forex" "/analytics" "/audit")
 
 # if compared to know what state it has
 for i in "${ms[@]}"
 do
   fullpath=${url}${i}/api/v1
+  msname=${i}
   echo "========="
   echo "Calling ${fullpath}"
   status_code=$(curl --write-out %{http_code} --silent --output /dev/null ${fullpath})
@@ -43,7 +44,7 @@ do
       echo "OK"
   else
     echo "Will notify through slack..."
-    notify_to_slack "Please, check the API: ${fullpath}" "WARNING"
+    notify_to_slack "${msname} is failing. Please, check the API ${fullpath}" "WARNING"
   fi
   echo "========="
 done

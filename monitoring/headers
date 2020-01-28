@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Server: nginx/1.15.8
+Date: Tue, 03 Sep 2019 18:14:47 GMT
+Content-Type: text/plain; charset=UTF-8
+Content-Length: 0
+Connection: keep-alive
+access-control-allow-credentials: true
+access-control-allow-origin: *
+access-control-expose-headers: purchase-token
+cache-control: max-age=0, private, must-revalidate
+x-request-id: FcEAT5zLDM2GIn0AAAoB
+
