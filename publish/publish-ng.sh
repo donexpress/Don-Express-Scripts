@@ -12,7 +12,9 @@ cd $localPath
 # git check rama
 git stash;
 
-git pull;
+git pull origin staging;
+
+git checkout staging;
 
 #if [ ! -d "node_modules" ]; then
 npm install;
@@ -32,4 +34,4 @@ ng build --prod;
 
 rm -rf $MsPath"/dist";
 
-cp -r $localPath"dist/" $MsPath;
+cp -rf $localPath"dist/" $MsPath;

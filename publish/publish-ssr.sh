@@ -13,9 +13,11 @@ cd $localPath
 # git check rama
 git stash;
 
-git pull;
+git pull origin staging;
 
-if [[ ($value != "auth") && ($value != "cs_channel") && ($value != "boutique") && ($value != "buy") ]];
+git checkout staging;
+
+if [[ ($value != "auth") && ($value != "cs_channel") && ($value != "boutique") && ($value != "buy") && ($value != "website") ]];
 then
   npm install
 
