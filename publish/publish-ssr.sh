@@ -17,7 +17,7 @@ git pull origin staging;
 
 git checkout staging;
 
-if [[ ($value != "auth") && ($value != "cs_channel") && ($value != "boutique") && ($value != "buy") && ($value != "website") ]];
+if [[ ($value != "auth") && ($value != "cs_channel") && ($value != "boutique") && ($value != "buy") && ($value != "website") && ($value != "bid") ]];
 then
   npm install
 

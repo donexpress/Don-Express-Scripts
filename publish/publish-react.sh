@@ -6,7 +6,6 @@ localFolder="/home/admin/scripts/publish/repos"
 localPath=$localFolder"/donex_$2/"
 
 MsPath="/var/www/donex_$2"
-value="$2"
 
 cd $localPath
 

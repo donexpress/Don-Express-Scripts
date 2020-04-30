@@ -30,8 +30,8 @@ rm -rf $localPath"/dist";
 
 ng build --prod;
 
-#npm update;
+if [ -d $localPath"/dist" ]; then
+  rm -rf $MsPath"/dist";
 
-rm -rf $MsPath"/dist";
-
-cp -rf $localPath"dist/" $MsPath;
+  cp -rf $localPath"dist/" $MsPath;
+fi
