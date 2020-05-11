@@ -3,9 +3,21 @@
 
 cd ~/donex_$2/
 
-git pull origin staging
+if [ $branch == "null" ]
+then
+      # git check rama
+      git stash;
 
-git checkout staging
+      git pull origin staging;
+
+      git checkout staging;
+else
+      git stash;
+
+      git pull origin $3;
+
+      git checkout $3;
+fi
 
 #dcbstg 
 

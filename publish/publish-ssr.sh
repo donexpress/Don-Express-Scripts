@@ -10,7 +10,7 @@ value="$2"
 
 cd $localPath
 
-if [[ (-z "$3") && (-n "$3") ]]
+if [ $branch == "null" ]
 then
       # git check rama
       git stash;
