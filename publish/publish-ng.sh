@@ -9,22 +9,27 @@ MsPath="/var/www/donex_$2"
 
 cd $localPath
 
-# git check rama
-git stash;
+if [[ (-z "$3") && (-n "$3") ]]
+then
+      # git check rama
+      git stash;
 
-git pull origin staging;
+      git pull origin staging;
 
-git checkout staging;
+      git checkout staging;
+else
+      git stash;
 
-#if [ ! -d "node_modules" ]; then
+      git pull origin $3;
+
+      git checkout $3;
+fi
+
 npm install;
 
 if [ -d "node_modules/node-sass" ]; then
   npm rebuild node-sass;
 fi
-#fi
-
-#rm -rf package-lock.json;
 
 rm -rf $localPath"/dist";
 
