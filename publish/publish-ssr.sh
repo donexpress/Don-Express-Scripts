@@ -7,26 +7,17 @@ localPath=$localFolder"/donex_$2/"
 
 MsPath="/var/www/donex_$2"
 value="$2"
+branch="$3"
 
 cd $localPath
 
-if [ $branch == "null" ]
-then
-      # git check rama
-      git stash;
+git stash;
+      
+git pull origin $3;
 
-      git pull origin staging;
+git checkout $3;
 
-      git checkout staging;
-else
-      git stash;
-
-      git pull origin $3;
-
-      git checkout $3;
-fi
-
-if [[ ($value != "auth") && ($value != "cs_channel") && ($value != "boutique") && ($value != "buy") && ($value != "website") && ($value != "bid") ]];
+if [[ ($value != "auth") && ($value != "cs_channel") && ($value != "boutique") && ($value != "buy") && ($value != "website") && ($value != "bid") && ($value != "logs") ]];
 then
   npm install
 
