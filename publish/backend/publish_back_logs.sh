@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker container logs donex_$2_app_1 --until=1s
+docker container logs --tail 100 donex_$2_app_1
