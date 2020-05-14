@@ -9,21 +9,11 @@ MsPath="/var/www/donex_$2"
 
 cd $localPath
 
-if [ $branch == "null" ]
-then
-      # git check rama
-      git stash;
+git stash;
 
-      git pull origin staging;
+git pull origin $3;
 
-      git checkout staging;
-else
-      git stash;
-
-      git pull origin $3;
-
-      git checkout $3;
-fi
+git checkout $3;
 
 npm install;
 
