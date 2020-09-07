@@ -2,6 +2,7 @@
 
 echo $2
 app=$3
+branch=$4
 
 if [ $2 == 'front' ]
 then
@@ -14,12 +15,12 @@ fi
 
 echo docker pull registry.donexpress.com/$environment-$app-name:staging;
 
-cd ~/donex_$2/
+cd ~/donex_$app/
 
 git stash;
 
-git pull origin $4;
+git pull origin $branch;
 
-git checkout $4;
+git checkout $branch;
 
 docker-compose -f docker-compose.yml -f docker-compose.qa.yml up -d;
