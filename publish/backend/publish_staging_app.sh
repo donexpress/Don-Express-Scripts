@@ -13,14 +13,14 @@ then
     environment="be"
 fi
 
-echo docker pull registry.donexpress.com/$environment-$app:staging;
+echo docker pull registry.donexpress.com/$environment-$3:staging;
 
-cd ~/donex_$app/
+cd ~/donex_$3/
 
 git stash;
 
-git pull origin $branch;
+git pull origin $4;
 
-git checkout $branch;
+git checkout $4;
 
 docker-compose -f docker-compose.yml -f docker-compose.qa.yml up -d;
