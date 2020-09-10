@@ -1,26 +1,22 @@
 #!/bin/bash
 
-echo $2
-app=$3
-branch=$4
-
-if [ $2 == 'front' ]
+if [ $1 == 'front' ]
 then
     environment="fe"
 fi
-if [ $2 == 'back' ]
+if [ $1 == 'back' ]
 then
     environment="be"
 fi
 
-echo docker pull registry.donexpress.com/$environment-$3:staging;
+echo docker pull registry.donexpress.com/$environment-$2:staging;
 
-cd ~/donex_$3/
+cd ~/donex_$2/
 
 git stash;
 
-git pull origin $4;
+git pull origin $3;
 
-git checkout $4;
+git checkout $3;
 
 docker-compose -f docker-compose.yml -f docker-compose.qa.yml up -d;
