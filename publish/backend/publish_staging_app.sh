@@ -13,7 +13,7 @@ then
     environment="be"
 fi
 
-echo docker pull registry.donexpress.com/$environment-$app-name:staging;
+echo docker pull registry.donexpress.com/$environment-$app:staging;
 
 cd ~/donex_$app/
 
