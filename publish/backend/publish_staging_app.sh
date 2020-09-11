@@ -17,6 +17,6 @@ git stash;
 
 git pull origin $3;
 
-git checkout $3;
+#git checkout $3;
 
 docker-compose -f docker-compose.yml -f docker-compose.qa.yml up -d;
