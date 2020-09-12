@@ -9,7 +9,7 @@ then
     environment="be"
 fi
 
-echo docker pull registry.donexpress.com/$environment-$2:staging;
+docker pull registry.donexpress.com/$environment-$2:staging;
 
 cd ~/donex_$2/
 
