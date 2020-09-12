@@ -13,7 +13,7 @@ echo docker pull registry.donexpress.com/$environment-$2:staging;
 
 cd ~/donex_$2/
 
-git stash;
+#git stash;
 
 git pull origin $3;
 
