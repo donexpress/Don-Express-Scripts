@@ -30,7 +30,10 @@ fi
 cd ~/donex_$2/
 
 #git stash;
-
+if [$3 == 'master']
+then
+    exit 1;
+fi
 git pull origin $3;
 
 #git checkout $3;
