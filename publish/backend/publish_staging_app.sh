@@ -1,4 +1,9 @@
 #!/bin/bash
+echo '#############';
+echo $1;
+echo $2;
+echo $3;
+echo '#############';
 
 if [ $1 == 'front' ]
 then
