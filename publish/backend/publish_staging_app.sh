@@ -14,7 +14,7 @@ then
     environment="be"
 fi
 
-if [[ ($2 != "customer_service") && ($2 != "cs_channel") ]];
+if [[ ($2 != 'customer_service') && ($2 != 'cs_channel') ]];
 then
     docker pull registry.donexpress.com/$environment-$2:staging;
 else
