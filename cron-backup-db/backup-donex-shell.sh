@@ -4,7 +4,7 @@ BACKUPS_PATH="/tmp/backups";
 CURRENT_DATE_TIME="`date +%Y-%m-%d`";
 FILE_NAME="$BACKUPS_PATH/donex_db_backup"
 
-export PGUSER=donex_backup
+export PGUSER=donex_backup_user213
 export PGPASSWORD=mustbackupdb....!!!!
 
 # generate and accessing backup_path
