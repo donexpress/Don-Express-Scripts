@@ -32,7 +32,8 @@ fi
 
 cd ~/donex_$2/
 
-#git stash;
+git stash;
+
 if [ $3 == 'master' ]
 then
     exit 0;
