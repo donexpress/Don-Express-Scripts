@@ -34,11 +34,6 @@ cd ~/donex_$2/
 
 git stash;
 
-#if [ $3 == 'master' ]
-#then
-    #echo 'Entro al server master'
-    #exit 0;
-#fi
 git pull origin $3;
 
 #git checkout $3;
