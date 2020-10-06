@@ -4,7 +4,7 @@ BACKUPS_PATH="/tmp/backups";
 CURRENT_DATE_TIME="`date +%Y-%m-%d`";
 FILE_NAME="$BACKUPS_PATH/donex_db_backup"
 
-export PGUSER=donex_backup_user213
+export PGUSER=backup
 export PGPASSWORD=mustbackupdb....!!!!
 
 # generate and accessing backup_path
@@ -16,7 +16,7 @@ cd $BACKUPS_PATH;
 umask 177
 
 # Declare Database array variable
-declare -a db=("donex_accounts_astick" "donex_audit_gendol" "donex_catalog_didech" "donex_cms_newive" "donex_customer_service_fularl" "donex_files_vilipa" "donex_forex_cgogro" "donex_forex_chuend" "donex_gateway_rocrom" "donex_logistics_atexon" "donex_notifications_ayfere" "donex_os_tionig" "donex_payments_ineque" "donex_redirect_heropo" "donex_social_vdampa" "donex_wallet_stetra")
+declare -a db=("donex_accounts_staging" "donex_audit_staging" "donex_catalog_staging" "donex_cms_staging" "donex_customer_service_staging" "donex_files_staging" "donex_forex_staging" "donex_forex_staging" "donex_gateway_staging" "donex_logistics_staging" "donex_notifications_staging" "donex_os_staging" "donex_payments_staging" "donex_redirect_staging" "donex_social_staging" "donex_wallet_staging")
 
 echo "******************"
 for db in "${db[@]}"
