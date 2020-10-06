@@ -38,4 +38,11 @@ git pull origin $3;
 
 #git checkout $3;
 
+if [[ $3 != 'staging' && $3 != 'master' ]]
+then
+    service_name=$environment'_'$2'_branch';
+    echo $service_name
+    echo "${service_name^^}=$3" >> ~/.env.cluster;
+fi
+
 docker-compose -f docker-compose.yml -f docker-compose.qa.yml up -d;
