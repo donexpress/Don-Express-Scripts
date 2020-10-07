@@ -35,7 +35,6 @@ fi
 if [[ $3 != 'staging' && $3 != 'master' ]]
 then
     echo "$4=$3" >> ~/.env.cluster;
-    source ~/.bashrc;
 fi
 
 cd ~/donex_$2/
@@ -57,6 +56,6 @@ then
     exit 0;
 fi
 
-#docker tag registry.donexpress.com/$environment-$2:$3 registry.donexpress.com/$environment-$2:local
+docker tag registry.donexpress.com/$environment-$2:$3 registry.donexpress.com/$environment-$2:dc0-latest
 
 docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d;
