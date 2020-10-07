@@ -5,6 +5,7 @@ echo $2;
 echo $3;
 echo '#############';
 
+# Setting the environment comes from the frontend or the backend
 if [ $1 == 'front' ]
 then
     environment="fe"
@@ -30,6 +31,13 @@ else
     fi
 fi
 
+if [[ $3 != 'staging' && $3 != 'master' ]]
+then
+    service_name=$environment'_'$2'_branch';
+    echo $service_name
+    echo "${service_name^^}=$3" >> ~/.env.cluster;
+fi
+
 cd ~/donex_$2/
 
 git stash;
@@ -38,11 +46,15 @@ git pull origin $3;
 
 #git checkout $3;
 
-if [[ $3 != 'staging' && $3 != 'master' ]]
+if [ $3 == 'master' ]
 then
-    service_name=$environment'_'$2'_branch';
-    echo $service_name
-    echo "${service_name^^}=$3" >> ~/.env.cluster;
+    docker-compose -f docker-compose.yml -f docker-compose.master.yml up -d;
+    exit 0;
+fi
+if [ $3 == 'staging' ]
+then
+    docker-compose -f docker-compose.yml -f docker-compose.qa.yml up -d;
+    exit 0;
 fi
 
-docker-compose -f docker-compose.yml -f docker-compose.qa.yml up -d;
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d;
