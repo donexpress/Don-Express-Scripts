@@ -56,13 +56,4 @@ then
     exit 0;
 fi
 
-dkst "$2"
-
-function dkst (){
-    for c in "$@" do
-        docker ps | awk "/$c/ { print \$1 }" |
-        while read data; do
-            docker stop $data
-        done
-    done
-}
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d;
