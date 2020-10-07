@@ -32,11 +32,6 @@ else
     fi
 fi
 
-if [[ $3 != 'staging' && $3 != 'master' ]]
-then
-    echo "$4=$3" >> ~/.env.cluster;
-fi
-
 cd ~/donex_$2/
 
 git stash;
