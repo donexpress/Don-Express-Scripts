@@ -3,6 +3,7 @@ echo '#############';
 echo $1;
 echo $2;
 echo $3;
+echo $4;
 echo '#############';
 
 # Setting the environment comes from the frontend or the backend
@@ -33,9 +34,7 @@ fi
 
 if [[ $3 != 'staging' && $3 != 'master' ]]
 then
-    service_name=$environment'_'$2'_branch';
-    echo $service_name
-    echo "${service_name^^}=$3" >> ~/.env.cluster;
+    echo "$4=$3" >> ~/.env.cluster;
 fi
 
 cd ~/donex_$2/
