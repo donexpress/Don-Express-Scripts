@@ -53,13 +53,13 @@ fi
 
 if [ $2 == 'customer_service' ]
 then
-    app="customer-service"
+    app="customer-service";
     docker tag registry.donexpress.com/$environment-$app:$3 registry.donexpress.com/$environment-$app:dc0-latest;
     exit 0;
 fi
 if [ $2 == 'cs_channel' ]
 then
-    app="cs-channel"
+    app="cs-channel";
     docker tag registry.donexpress.com/$environment-$app:$3 registry.donexpress.com/$environment-$app:dc0-latest;
     exit 0;
 fi
