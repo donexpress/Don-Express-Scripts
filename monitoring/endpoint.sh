@@ -26,7 +26,7 @@ url_prod=https://gateway.donexpress.com
 url_dev=https://dc0-gateway.donexpress.com
 
 # declare array variable
-declare -a ms=("" "/accounts" "/catalog" "/payments" "/logistics" "/wallet" "/social" "/notifications" "/customer_service" "/files" "/os" "/forex")
+declare -a ms=("" "/accounts" "/catalog" "/payments" "/logistics" "/forex" "/wallet" "/notifications" "/customer_service" "/files" "/os" "/redirect")
 
 # if compared to know what state it has
 for i in "${ms[@]}"
