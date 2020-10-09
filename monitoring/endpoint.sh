@@ -43,13 +43,25 @@ do
   echo "${fullpathprod} returned with $status_code_prod"
   echo "${fullpathstaging} returned with $status_code_staging"
   echo "${fullpathdev} returned with $status_code_dev"
-  if [[ ($status_code_prod -eq 200) && ($status_code_staging -eq 200) && ($status_code_dev -eq 200) ]]
+  if [ $status_code_prod -eq 200 ]
     then
-      echo "Everything is fine in the three environments..."
+      echo "Everything is fine in the production environments..."
   else
     echo "Will notify through slack..."
     notify_to_slack "${msname} is failing. Please, check the API ${fullpathprod}" "WARNING"
+  fi
+  if [ $status_code_staging -eq 200 ]
+    then
+      echo "Everything is fine in the staging environments..."
+  else
+    echo "Will notify through slack..."
     notify_to_slack "${msname} is failing. Please, check the API ${fullpathstaging}" "WARNING"
+  fi
+  if [ $status_code_dev -eq 200 ]
+    then
+      echo "Everything is fine in the development environments..."
+  else
+    echo "Will notify through slack..."
     notify_to_slack "${msname} is failing. Please, check the API ${fullpathdev}" "WARNING"
   fi
   echo "========="
