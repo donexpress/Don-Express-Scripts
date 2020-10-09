@@ -25,7 +25,7 @@ function notify_to_slack () {
 }
 
 # url from api
-url=https://staging-gateway.donexpress.com
+url=https://${GATEWAY_APP_SUBDOMAIN}.donexpress.com
 
 # declare array variable
 declare -a ms=("" "/accounts" "/catalog" "/payments" "/logistics" "/wallet" "/social" "/notifications" "/customer_service" "/files" "/os" "/forex" "/analytics" "/audit")
