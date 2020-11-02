@@ -68,6 +68,11 @@ then
 fi
 if [[ ($2 != 'customer_service') && ($2 != 'cs_channel') ]];
 then
+    if [ $2 == 'payments' ]
+    then
+        app="payments-jobs";
+        docker tag registry.donexpress.com/$environment-$app:$3 registry.donexpress.com/$environment-$app:dc0-latest;
+    fi
     docker tag registry.donexpress.com/$environment-$2:$3 registry.donexpress.com/$environment-$2:dc0-latest
 fi
 
