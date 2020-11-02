@@ -19,6 +19,11 @@ fi
 if [[ ($2 != 'customer_service') && ($2 != 'cs_channel') ]];
 then
     docker pull registry.donexpress.com/$environment-$2:$3;
+    if [ $2 == 'payments' ]
+    then
+        app="payments-jobs"
+        docker pull registry.donexpress.com/$environment-$app:$3;
+    fi
 else
     if [ $2 == 'customer_service' ]
     then
