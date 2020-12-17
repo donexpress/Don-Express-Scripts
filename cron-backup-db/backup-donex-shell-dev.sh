@@ -36,7 +36,7 @@ size="`wc -c $BACKUPS_PATH/donex_db_backup_$CURRENT_DATE_TIME.tar.gz`";
 echo $size;
 
 #Upload db alibaba 
-python /home/admin/donex_scripts/cron-backup-db/alibaba_upload.py
+#python /home/admin/donex_scripts/cron-backup-db/alibaba_upload.py
 
 rm -rf $FILE_NAME
 #rm $DATABASE_NAME
