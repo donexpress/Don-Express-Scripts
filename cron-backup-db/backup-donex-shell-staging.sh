@@ -16,7 +16,7 @@ cd $BACKUPS_PATH;
 umask 177
 
 # Declare Database array variable
-declare -a db=("donex_accounts_staging" "donex_audit_staging" "donex_catalog_staging" "donex_cms_staging" "donex_customer_service_staging" "donex_files_staging" "donex_forex_staging" "donex_forex_staging" "donex_gateway_staging" "donex_logistics_staging" "donex_notifications_staging" "donex_os_staging" "donex_payments_staging" "donex_redirect_staging" "donex_social_staging" "donex_wallet_staging")
+declare -a db=("donex_accounts_staging" "donex_audit_staging" "donex_catalog_staging" "donex_cms_staging" "donex_customer_service_staging" "donex_files_staging" "donex_forex_staging" "donex_gateway_staging" "donex_logistics_staging" "donex_notifications_staging" "donex_os_staging" "donex_payments_staging" "donex_redirect_staging" "donex_social_staging" "donex_wallet_staging" "donex_atm_staging" "donex_hermes_staging")
 
 echo "******************"
 for db in "${db[@]}"
@@ -35,6 +35,7 @@ tar -cvzpf $BACKUPS_PATH/donex_db_backup_$CURRENT_DATE_TIME.tar.gz $FILE_NAME
 size="`wc -c $BACKUPS_PATH/donex_db_backup_$CURRENT_DATE_TIME.tar.gz`";
 echo $size;
 
+#Upload db alibaba 
 python /home/admin/scripts/backup/alibaba_upload.py
 
 rm -rf $FILE_NAME

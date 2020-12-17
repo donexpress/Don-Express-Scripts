@@ -16,7 +16,7 @@ cd $BACKUPS_PATH;
 umask 177
 
 # Declare Database array variable
-declare -a db=("donex_accounts_astick" "donex_audit_gendol" "donex_catalog_didech" "donex_cms_newive" "donex_customer_service_fularl" "donex_files_vilipa" "donex_forex_cgogro" "donex_forex_chuend" "donex_gateway_rocrom" "donex_logistics_atexon" "donex_notifications_ayfere" "donex_os_tionig" "donex_payments_ineque" "donex_redirect_heropo" "donex_social_vdampa" "donex_wallet_stetra")
+declare -a db=("donex_accounts_astick" "donex_audit_gendol" "donex_catalog_didech" "donex_cms_newive" "donex_customer_service_fularl" "donex_files_vilipa" "donex_forex_cgogro" "donex_forex_chuend" "donex_gateway_rocrom" "donex_logistics_atexon" "donex_notifications_ayfere" "donex_os_tionig" "donex_payments_ineque" "donex_redirect_heropo" "donex_social_vdampa" "donex_wallet_stetra" "donex_atm_trusty" "donex_hermes_amensane")
 
 echo "******************"
 for db in "${db[@]}"
