@@ -35,14 +35,15 @@ do
   fullpathstaging=${url_staging}${i}/api/v1
   fullpathdev=${url_dev}${i}/api/v1
   msname=${i}
-  echo "========="
-  echo "Calling ${fullpath}"
-  status_code_prod=$(curl --write-out %{http_code} --silent --output /dev/null ${fullpathprod})
-  status_code_staging=$(curl --write-out %{http_code} --silent --output /dev/null ${fullpathstaging})
-  status_code_dev=$(curl --write-out %{http_code} --silent --output /dev/null ${fullpathdev})
+
+  status_code_prod=$(curl --head --write-out %{http_code} --silent --output /dev/null ${fullpathprod})
+  status_code_staging=$(curl --head --write-out %{http_code} --silent --output /dev/null ${fullpathstaging})
+  status_code_dev=$(curl --head --write-out %{http_code} --silent --output /dev/null ${fullpathdev})
+  
   echo "${fullpathprod} returned with $status_code_prod"
   echo "${fullpathstaging} returned with $status_code_staging"
   echo "${fullpathdev} returned with $status_code_dev"
+  
   if [ $status_code_prod -eq 200 ]
     then
       echo "Everything is fine in the production environments..."
@@ -64,5 +65,4 @@ do
     echo "Will notify through slack..."
     notify_to_slack "${msname} is failing. Please, check the API ${fullpathdev}" "WARNING"
   fi
-  echo "========="
 done
