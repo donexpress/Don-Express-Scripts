@@ -16,7 +16,7 @@ cd $BACKUPS_PATH;
 umask 177
 
 # Declare Database array variable
-declare -a db=("donex_accounts_astick" "donex_audit_gendol" "donex_catalog_didech" "donex_cms_newive" "donex_customer_service_fularl" "donex_files_vilipa" "donex_forex_cgogro" "donex_forex_chuend" "donex_gateway_rocrom" "donex_logistics_atexon" "donex_notifications_ayfere" "donex_os_tionig" "donex_payments_ineque" "donex_redirect_heropo" "donex_social_vdampa" "donex_wallet_stetra")
+declare -a db=("donex_accounts_astick" "donex_audit_gendol" "donex_catalog_didech" "donex_cms_newive" "donex_customer_service_fularl" "donex_files_vilipa" "donex_forex_cgogro" "donex_forex_chuend" "donex_gateway_rocrom" "donex_logistics_atexon" "donex_notifications_ayfere" "donex_os_tionig" "donex_payments_ineque" "donex_redirect_heropo" "donex_social_vdampa" "donex_wallet_stetra" "donex_atm_trusty" "donex_hermes_amensane")
 
 echo "******************"
 for db in "${db[@]}"
@@ -35,7 +35,7 @@ tar -cvzpf $BACKUPS_PATH/donex_db_backup_$CURRENT_DATE_TIME.tar.gz $FILE_NAME
 size="`wc -c $BACKUPS_PATH/donex_db_backup_$CURRENT_DATE_TIME.tar.gz`";
 echo $size;
 
-python /home/admin/scripts/backup/alibaba_upload.py
+python /home/admin/donex_scripts/cron-backup-db/alibaba_upload.py
 
 rm -rf $FILE_NAME
 #rm $DATABASE_NAME
