@@ -16,7 +16,7 @@ then
     environment="be"
 fi
 
-if [[ ($2 != 'customer_service') && ($2 != 'cs_channel') ]];
+if [[ ($2 != 'customer_service') && ($2 != 'cs_channel') && ($2 != 'content_gw') ]];
 then
     docker pull registry.donexpress.com/$environment-$2:$3;
     if [ $2 == 'payments' ]
@@ -28,6 +28,11 @@ else
     if [ $2 == 'customer_service' ]
     then
         app="customer-service"
+        docker pull registry.donexpress.com/$environment-$app:$3;
+    fi
+    if [ $2 == 'content_gw' ]
+    then
+        app="content-gw"
         docker pull registry.donexpress.com/$environment-$app:$3;
     fi
     if [ $2 == 'cs_channel' ]
@@ -56,6 +61,11 @@ then
     exit 0;
 fi
 
+if [ $2 == 'content_gw' ]
+then
+    app="content-gw";
+    docker tag registry.donexpress.com/$environment-$app:$3 registry.donexpress.com/$environment-$app:dc0-latest;
+fi
 if [ $2 == 'customer_service' ]
 then
     app="customer-service";
@@ -66,7 +76,7 @@ then
     app="cs-channel";
     docker tag registry.donexpress.com/$environment-$app:$3 registry.donexpress.com/$environment-$app:dc0-latest;
 fi
-if [[ ($2 != 'customer_service') && ($2 != 'cs_channel') ]];
+if [[ ($2 != 'customer_service') && ($2 != 'cs_channel') && ($2 != 'content_gw') ]];
 then
     if [ $2 == 'payments' ]
     then
