@@ -24,6 +24,11 @@ then
         app="payments-jobs"
         docker pull registry.donexpress.com/$environment-$app:$3;
     fi
+    if [ $2 == 'wallet' ]
+    then
+        app="wallet-jobs"
+        docker pull registry.donexpress.com/$environment-$app:$3;
+    fi
 else
     if [ $2 == 'customer_service' ]
     then
@@ -81,6 +86,11 @@ then
     if [ $2 == 'payments' ]
     then
         app="payments-jobs";
+        docker tag registry.donexpress.com/$environment-$app:$3 registry.donexpress.com/$environment-$app:dc0-latest;
+    fi
+    if [ $2 == 'wallet' ]
+    then
+        app="wallet-jobs";
         docker tag registry.donexpress.com/$environment-$app:$3 registry.donexpress.com/$environment-$app:dc0-latest;
     fi
     docker tag registry.donexpress.com/$environment-$2:$3 registry.donexpress.com/$environment-$2:dc0-latest
