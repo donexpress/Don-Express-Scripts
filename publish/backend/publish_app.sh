@@ -57,25 +57,13 @@ git pull origin $3;
 
 if [ $3 == 'master' ]
 then
-    if [ $2 == 'cms' ]
-    then
-        docker-compose -f docker-compose.prod.yml up -d;
-        exit 0;
-    else
-        docker-compose -f docker-compose.yml -f docker-compose.master.yml up -d;
-        exit 0;
-    fi
+    docker-compose -f docker-compose.yml -f docker-compose.master.yml up -d;
+    exit 0;
 fi
 if [ $3 == 'staging' ]
 then
-    if [ $2 == 'cms' ]
-    then
-        docker-compose -f docker-compose.prod.yml up -d;
-        exit 0;
-    else
-        docker-compose -f docker-compose.yml -f docker-compose.qa.yml up -d;
-        exit 0;
-    fi
+    docker-compose -f docker-compose.yml -f docker-compose.qa.yml up -d;
+    exit 0;
 fi
 
 if [ $2 == 'content_gw' ]
