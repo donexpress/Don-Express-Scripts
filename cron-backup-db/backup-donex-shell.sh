@@ -24,7 +24,7 @@ do
   DATABASE_NAME="${db}"
   DATABASE_NAME_BACKUP="${db}_backup_${CURRENT_DATE_TIME}.dump"
   echo "${DATABASE_NAME} bachup finished."
-  pg_dump -U backup -h localhost --port 5432 -x -O -f $FILE_NAME/${DATABASE_NAME_BACKUP} ${DATABASE_NAME};
+  pg_dump -U donex_backup_user213 -h localhost --port 5432 -x -O -f $FILE_NAME/${DATABASE_NAME_BACKUP} ${DATABASE_NAME};
  
 done
 echo "******************"
